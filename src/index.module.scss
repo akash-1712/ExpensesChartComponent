@@ -1,0 +1,25 @@
+$SoftRed: hsl(10, 79%, 65%);
+$Cyan: hsl(186, 34%, 60%);
+$DarkBrown: hsl(25, 47%, 15%);
+$mediumBrown: hsl(28, 10%, 53%);
+$cream: hsl(27, 66%, 92%);
+$VeryPaleOrange: hsl(33, 100%, 98%);
+
+:root body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $Cyan;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
