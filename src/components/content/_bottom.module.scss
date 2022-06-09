@@ -1,0 +1,46 @@
+@import "../../index.module.scss";
+
+.bottom {
+  &_chart {
+    border-bottom: 2px solid $cream;
+
+    & h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  &_exp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &_left {
+      text-align: left;
+
+      & p {
+        margin-bottom: 0.2rem;
+        color: $mediumBrown;
+        font-size: 0.8rem;
+      }
+
+      & h1 {
+        font-size: 2rem;
+      }
+    }
+
+    &_right {
+      text-align: right;
+      & p {
+        color: $mediumBrown;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.rate {
+  color: $DarkBrown;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+}

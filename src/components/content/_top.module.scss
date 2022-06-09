@@ -1,0 +1,19 @@
+@import "../../index.module.scss";
+
+.top {
+  &_left {
+    & p {
+      margin-bottom: 0.5rem;
+      color: $cream;
+      font-size: 0.8rem;
+    }
+
+    & h3 {
+      font-size: 1.5rem;
+      color: $VeryPaleOrange;
+    }
+  }
+
+  &_right {
+  }
+}
