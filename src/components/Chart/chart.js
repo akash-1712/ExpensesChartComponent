@@ -35,7 +35,7 @@ const Chart = (props) => {
                 }`,
               }}
             ></span>
-            <p role={chart.day}>{chart.day}</p>
+            <p>{chart.day}</p>
           </div>
         );
       })}
