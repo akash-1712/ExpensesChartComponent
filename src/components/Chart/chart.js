@@ -2,16 +2,13 @@ import { useState } from "react";
 import styles from "./_chart.module.scss";
 
 const Chart = (props) => {
-  const [visible, setIsVisible] = useState("");
-  const [changeColor, setChangeColor] = useState("");
+  const [changeHandler, setChangeHandler] = useState("");
 
   const leaveHandler = (id) => {
-    setIsVisible("");
-    setChangeColor("");
+    setChangeHandler("");
   };
   const enterHandler = (id) => {
-    setIsVisible(id);
-    setChangeColor(id);
+    setChangeHandler(id);
   };
 
   return (
@@ -21,16 +18,15 @@ const Chart = (props) => {
           <div key={chart.day} className={styles.chart_bar}>
             <div
               className={`${styles.chart_spent} ${
-                visible === chart.day ? "" : styles.hidden
+                changeHandler === chart.day ? "" : styles.hidden
               }`}
               id={chart.day}
             >{`$${chart.spent}`}</div>
             <span
-              //   onMouseEnter={hoverHandler.bind(null, chart.day)}
               onMouseLeave={leaveHandler.bind(null, chart.day)}
               onMouseEnter={enterHandler.bind(null, chart.day)}
               className={`${
-                changeColor === chart.day ? styles.light : styles.darken
+                changeHandler === chart.day ? styles.light : styles.darken
               }`}
               style={{
                 height: `${(chart.spent / props.total) * 100}%`,
