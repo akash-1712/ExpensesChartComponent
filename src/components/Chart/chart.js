@@ -1,21 +1,17 @@
+import { useState } from "react";
 import styles from "./_chart.module.scss";
 
 const Chart = (props) => {
-  const leaveHandler = (event) => {
-    const spent = event.target.previousElementSibling;
-    spent.style.visibility = "hidden";
-    event.target.style.backgroundColor = "hsl(10, 79%, 55%)";
-    event.target.style.backgroundColor = `${
-      spent.id === "wed" ? "hsl(186, 34%, 60%)" : ""
-    }`;
+  const [visible, setIsVisible] = useState("");
+  const [changeColor, setChangeColor] = useState("");
+
+  const leaveHandler = (id) => {
+    setIsVisible("");
+    setChangeColor("");
   };
-  const enterHandler = (event) => {
-    const spent = event.target.previousElementSibling;
-    spent.style.visibility = "visible";
-    // event.target.style.backgroundColor = "hsl(10, 79%, 65%)";
-    event.target.style.backgroundColor = `${
-      spent.id === "wed" ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"
-    }`;
+  const enterHandler = (id) => {
+    setIsVisible(id);
+    setChangeColor(id);
   };
 
   return (
@@ -24,13 +20,18 @@ const Chart = (props) => {
         return (
           <div key={chart.day} className={styles.chart_bar}>
             <div
-              className={styles.chart_spent}
+              className={`${styles.chart_spent} ${
+                visible === chart.day ? "" : styles.hidden
+              }`}
               id={chart.day}
             >{`$${chart.spent}`}</div>
             <span
               //   onMouseEnter={hoverHandler.bind(null, chart.day)}
-              onMouseLeave={leaveHandler}
-              onMouseEnter={enterHandler}
+              onMouseLeave={leaveHandler.bind(null, chart.day)}
+              onMouseEnter={enterHandler.bind(null, chart.day)}
+              className={`${
+                changeColor === chart.day ? styles.light : styles.darken
+              }`}
               style={{
                 height: `${(chart.spent / props.total) * 100}%`,
                 backgroundColor: `${

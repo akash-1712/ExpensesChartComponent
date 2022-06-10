@@ -20,7 +20,6 @@
       width: 2rem;
       cursor: pointer;
       align-self: center;
-      background-color: darken($SoftRed, 10%);
     }
     & p {
       color: $mediumBrown;
@@ -28,7 +27,6 @@
   }
 
   &_spent {
-    visibility: hidden;
     background-color: black;
     color: $cream;
     padding: 0.4rem 0.3rem;
@@ -36,4 +34,16 @@
     font-size: 0.65rem;
     font-weight: 900;
   }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.light {
+  background-color: lighten($SoftRed, 0.1%);
+}
+
+.darken {
+  background-color: darken($SoftRed, 10%);
 }
